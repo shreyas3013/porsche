@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #020202;
+  color: #f3f3f3;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.scroll-track {
+  position: relative;
+  height: 900vh;
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.25) 0.5px, transparent 1px),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0.5px, transparent 1px);
+  background-size: 3px 3px, 4px 4px;
+  animation: grain 0.25s steps(4) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1%, 1%); }
+  50% { transform: translate(1%, -1%); }
+  75% { transform: translate(1.2%, 0.4%); }
+  100% { transform: translate(0, 0); }
+}
